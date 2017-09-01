@@ -10,7 +10,6 @@ const AboutUs = props => {
         <li><Link to="aboutus/team">Team</Link></li>
         <li><Link to="aboutus/contact">Contact</Link></li>
       </div>
-      <p>{props.children}</p>
     </div>
   );
 }
