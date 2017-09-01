@@ -7,10 +7,11 @@ const mapStateToProps = state => {
 }
 
 const App = props => {
+	console.log('Inside container');
 	const { isLoggedIn } = props;
-    return <LoginForm />
-	if (!isLoggedIn) {
 
+	if (!isLoggedIn) {
+		return <LoginForm />
 	}
 
 	return <div> Authenticated </div>;
