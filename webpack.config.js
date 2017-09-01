@@ -1,32 +1,64 @@
-const Config = {
+const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: './index.html',
+  filename: 'index.html',
+  inject: 'body'
+})
+
+module.exports = {
 	entry: './index.js',
 	output: {
-		path: '/',
-		filename: 'main.js'
+		path: path.resolve('dist'),
+    filename: 'index_bundle.js'
 	},
 
-    resolve: {
+  resolve: {
 	  extensions: ['.js', '.jsx', '*']
 	},
 
 	devServer: {
 		inline: true,
-		port: 8080
+		port: 8080,
+		historyApiFallback: true
 	},
-	
+
 	module: {
 		loaders: [
-		{
-			test: /\.jsx?$/,
-			exclude: /node_modules/,
-			loader: 'babel-loader',
-			
-			query: {
-				presets: ['es2015', 'react']
-			}
-		}
+			{ test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
 		]
-	}
+	},
+	plugins: [HtmlWebpackPluginConfig]
+}
+/*
+const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: './client/index.html',
+  filename: 'index.html',
+  inject: 'body'
+})
+
+module.exports = {
+  entry: './client/index.js',
+  output: {
+    path: path.resolve('dist'),
+    filename: 'index_bundle.js'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '*']
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+    ]
+  },
+  plugins: [HtmlWebpackPluginConfig]
 }
 
-module.exports = Config;
+
+*/

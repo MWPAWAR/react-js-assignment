@@ -1,10 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { createStore } from 'redux';
+import { Router, Route } from 'react-router';
 import reducer from './reducers';
-import container from './containers/container';
+import Root from './components/Root'
 
 const store = createStore(reducer);
 
-const root = React.createFactory(container);
-ReactDOM.render(root({ store }), document.getElementById('root'));
+render(
+  <Root store={store} />,
+  document.getElementById('root')
+);

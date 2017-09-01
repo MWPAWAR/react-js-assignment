@@ -1,4 +1,4 @@
-import { 
+import {
   LOGIN
 } from '../action-types';
 
@@ -11,10 +11,10 @@ export default function (state=init, action) {
 
   switch(action.type) {
     case LOGIN:
-	
-	  return {
-        isLoggedIn
-      };
+  	  return {
+          isLoggedIn: action.payload.isLoggedIn
+        };
+
     default:
       return state;
   }
