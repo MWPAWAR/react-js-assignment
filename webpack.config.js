@@ -8,27 +8,34 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 
 module.exports = {
-	entry: './index.js',
-	output: {
-		path: path.resolve('dist'),
+  entry: './index.js',
+  output: {
+    path: path.resolve('dist'),
     filename: 'index_bundle.js'
-	},
+  },
 
   resolve: {
-	  extensions: ['.js', '.jsx', '*']
-	},
+    extensions: ['.js', '.jsx', '*']
+  },
 
-	devServer: {
-		inline: true,
-		port: 8080,
-		historyApiFallback: true
-	},
+  devServer: {
+    inline: true,
+    port: 8080,
+    historyApiFallback: true
+  },
 
-	module: {
-		loaders: [
-			{ test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
-		]
-	},
-	plugins: [HtmlWebpackPluginConfig]
+  module: {
+    loaders: [{
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.jsx$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      }
+    ]
+  },
+  plugins: [HtmlWebpackPluginConfig]
 }

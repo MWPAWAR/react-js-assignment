@@ -3,17 +3,17 @@ import {
 } from '../action-types';
 
 const init = {
-	isLoggedIn: false
+  isLoggedIn: false
 }
 
-export default function (state=init, action) {
+export default function(state = init, action) {
   const isLoggedIn = state.isLoggedIn;
 
-  switch(action.type) {
+  switch (action.type) {
     case LOGIN:
-  	  return {
-          isLoggedIn: action.payload.isLoggedIn
-        };
+      return {
+        isLoggedIn: action.payload.isLoggedIn
+      };
 
     default:
       return state;
