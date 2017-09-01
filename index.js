@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import { createStore } from 'redux';
+import reducer from './reducers'
+import Container from './containers/container';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore(reducer);
+
+const root = React.createFactory(<App />)
+ReactDOM.render(root({ store }), document.getElementById('root'));

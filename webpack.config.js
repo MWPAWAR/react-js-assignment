@@ -4,7 +4,11 @@ const Config = {
 		path: '/',
 		filename: 'main.js'
 	},
-	
+
+    resolve: {
+	  extensions: ['.js', '.jsx', '*']
+	},
+
 	devServer: {
 		inline: true,
 		port: 8080
